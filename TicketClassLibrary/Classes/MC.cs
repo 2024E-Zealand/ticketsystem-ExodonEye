@@ -8,11 +8,12 @@ namespace TicketClassLibrary.Classes
 {
     public class MC : Vehicle
     {
-        // Constructor to set the vehicle type
-        public MC()
-        {
-            VehicleType = 2;
-        }
-
+         // Constructor to set the vehicle type
+    public MC(string licenseplate, DateTime date)
+    {
+        Licenseplate = licenseplate;
+        Date = date;
+        VehicleType = 2;
+    }
     }
 }

@@ -9,8 +9,10 @@ namespace TicketClassLibrary.Classes
     public class Car : Vehicle
     {
         // Constructor to set the vehicle type
-        public Car()
+        public Car(string licenseplate, DateTime date)
         {
+            Licenseplate = licenseplate;
+            Date = date;
             VehicleType = 1;
         }
 

@@ -15,7 +15,9 @@ namespace TicketClassLibrary.Classes.Tests
         public void PriceTest()
         {
             //arrange
-            var car = new Car();
+            string licenseplate = "cc20202";
+            DateTime date = DateTime.Now;
+            var car = new Car(licenseplate, date);
 
             //act
             var Price = car.Price();
@@ -28,13 +30,31 @@ namespace TicketClassLibrary.Classes.Tests
         public void VehicleTypeTest()
         {
             //arrange
-            var car = new Car();
+            string licenseplate = "cc20202";
+            DateTime date = DateTime.Now;
+            var car = new Car(licenseplate, date);
 
             //act
             var VehicleType = car.GetVehicleType();
 
             //assert
             Assert.AreEqual("Car", VehicleType);
+        }
+
+        [TestMethod()]
+        public void CarCretion()
+        {
+            //arrange
+            string LI = "cc20202";
+            DateTime D = new DateTime(2024, 10, 1);
+
+            //act
+            Car car = new Car(LI, D);
+
+            //assert
+            Assert.AreEqual(LI, car.GetLicenseplate());
+            Assert.AreEqual(D, car.GetDate());
+            Assert.AreEqual("Car", car.GetVehicleType());
         }
     }
 }

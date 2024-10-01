@@ -12,6 +12,7 @@ namespace TicketClassLibrary.Classes
         //instance fields
         private string _licenseplate;
         private DateTime _date;
+        private int _vehicleType;
 
         //properties
         protected string Licenseplate 
@@ -26,12 +27,18 @@ namespace TicketClassLibrary.Classes
                 _licenseplate = value;
             } 
         }
+
         protected DateTime Date 
         {
             get { return _date; } 
             set { _date = value; } 
         }
-        public int VehicleType { get; set; }
+
+        public int VehicleType 
+        {
+            get { return _vehicleType; }
+            set { _vehicleType = value; } 
+        }
 
 
         //methods
@@ -68,6 +75,17 @@ namespace TicketClassLibrary.Classes
                 default:
                     return "vehilce type is not in system";
             }
+        }
+
+        // Methods to access protected properties for testing
+        public string GetLicenseplate()
+        {
+            return Licenseplate;
+        }
+
+        public DateTime GetDate()
+        {
+            return Date;
         }
     }
 }
