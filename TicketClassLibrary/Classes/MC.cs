@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace TicketClassLibrary.Classes
 {
-    public class Car : Vehicle
+    public class MC : Vehicle
     {
         // Constructor to set the vehicle type
-        public Car()
+        public MC()
         {
-            VehicleType = 1;
+            VehicleType = 2;
         }
 
     }

@@ -9,32 +9,32 @@ using System.Threading.Tasks;
 namespace TicketClassLibrary.Classes.Tests
 {
     [TestClass()]
-    public class CarTests
+    public class MCTests
     {
         [TestMethod()]
         public void PriceTest()
         {
             //arrange
-            var car = new Car();
+            var mc = new MC();
 
             //act
-            var Price = car.Price();
+            var Price = mc.Price();
 
             //assert
-            Assert.AreEqual(240.0, Price);
+            Assert.AreEqual(125.0, Price);
         }
 
         [TestMethod()]
         public void VehicleTypeTest()
         {
             //arrange
-            var car = new Car();
+            var mc = new MC();
 
             //act
-            var VehicleType = car.GetVehicleType();
+            var VehicleType = mc.GetVehicleType();
 
             //assert
-            Assert.AreEqual("Car", VehicleType);
+            Assert.AreEqual("MC", VehicleType);
         }
     }
 }
