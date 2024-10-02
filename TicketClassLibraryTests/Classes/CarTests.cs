@@ -12,49 +12,88 @@ namespace TicketClassLibrary.Classes.Tests
     public class CarTests
     {
         [TestMethod()]
-        public void PriceTest()
+        public void CarPrice_PriceTrue_ReturnsPriceForCar()
         {
             //arrange
-            string licenseplate = "cc20202";
-            DateTime date = DateTime.Now;
-            var car = new Car(licenseplate, date);
+            var car = new Car();
 
             //act
-            var Price = car.Price();
+            var result = car.Price();
 
             //assert
-            Assert.AreEqual(240.0, Price);
+            Assert.AreEqual(240.0, result);
         }
 
         [TestMethod()]
-        public void VehicleTypeTest()
+        public void CarVehicleType_CarTrue_ReturnsCarType()
         {
             //arrange
-            string licenseplate = "cc20202";
-            DateTime date = DateTime.Now;
-            var car = new Car(licenseplate, date);
+            var car = new Car();
 
             //act
-            var VehicleType = car.GetVehicleType();
+            var result = car.GetVehicleType();
 
             //assert
-            Assert.AreEqual("Car", VehicleType);
+            Assert.AreEqual("Car", result);
         }
 
         [TestMethod()]
-        public void CarCretion()
+        public void vehicleType_CarFalse_ReturnsNoType()
+        {
+            //arrange
+            var car = new Car { VehicleType = 3 };
+
+            //act
+            var result = car.GetVehicleType();
+
+            //assert
+            Assert.AreEqual("vehilce type is not in system", result);
+        }
+
+        [TestMethod()]
+        public void CarCretion_CarCreatedTrue_ReturnsCarCreated()
         {
             //arrange
             string LI = "cc20202";
             DateTime D = new DateTime(2024, 10, 1);
 
             //act
-            Car car = new Car(LI, D);
+            var result = new Car(LI, D);
 
             //assert
-            Assert.AreEqual(LI, car.GetLicenseplate());
-            Assert.AreEqual(D, car.GetDate());
-            Assert.AreEqual("Car", car.GetVehicleType());
+            Assert.AreEqual(LI, result.GetLicenseplate());
+            Assert.AreEqual(D, result.GetDate());
+            Assert.AreEqual("Car", result.GetVehicleType());
+            Assert.AreEqual(240.0, result.Price());
         }
+
+        [TestMethod()]
+        public void BrobizzDiscount_CarDiscountTrue_ReturnsDiscountedPrice()
+        {
+            //arrange
+            var car = new Car();
+            double discountedPrice = 240.0 * 0.95;
+
+            //act
+            var result = car.Discount(true);
+
+            //assert
+            Assert.AreEqual(discountedPrice, result);
+        }
+
+        [TestMethod()]
+        public void BrobizzDiscount_CarDiscountFalse_ReturnsOriginalPrice()
+        {
+            //arrange
+            var car = new Car();
+            double price = 240.0;
+
+            //act
+            var result = car.Discount(false);
+
+            //assert
+            Assert.AreEqual(price, result);
+        }
+
     }
 }

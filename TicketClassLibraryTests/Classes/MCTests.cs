@@ -13,12 +13,10 @@ namespace TicketClassLibrary.Classes.Tests
     public class MCTests
     {
         [TestMethod()]
-        public void PriceTest()
+        public void MCPrice_PriceTrue_ReturnsPriceForMC()
         {
             //arrange
-            string licenseplate = "cc20202";
-            DateTime date = DateTime.Now;
-            var mc = new MC(licenseplate, date);
+            var mc = new MC();
 
             //act
             var Price = mc.Price();
@@ -28,12 +26,10 @@ namespace TicketClassLibrary.Classes.Tests
         }
 
         [TestMethod()]
-        public void VehicleTypeTest()
+        public void VehicleType_VehicleTypeTrue_ReturnsMCType()
         {
             //arrange
-            string licenseplate = "cc20202";
-            DateTime date = DateTime.Now;
-            var mc = new MC(licenseplate, date);
+            var mc = new MC();
 
             //act
             var VehicleType = mc.GetVehicleType();
@@ -43,19 +39,61 @@ namespace TicketClassLibrary.Classes.Tests
         }
 
         [TestMethod()]
-        public void MCCretion()
+        public void vehicleType_MCFalse_ReturnsNoType()
         {
             //arrange
-            string LI = "cc20202";
-            DateTime D = new DateTime(2024, 10, 1);
+            var mc = new MC { VehicleType = 3 };
 
             //act
-            MC mc = new MC(LI, D);
+            var result = mc.GetVehicleType();
 
             //assert
-            Assert.AreEqual(LI, mc.GetLicenseplate());
-            Assert.AreEqual(D, mc.GetDate());
-            Assert.AreEqual("MC", mc.GetVehicleType());
+            Assert.AreEqual("vehilce type is not in system", result);
+        }
+
+        [TestMethod()]
+        public void MCCreatetion_CreateAnMCObject_ReturnsAllTrue()
+        {
+            //arrange
+            string licenseplate = "cc20202";
+            DateTime date = new DateTime(2024, 10, 1);
+
+            //act
+            var result = new MC(licenseplate, date);
+
+            //assert
+            Assert.AreEqual(licenseplate, result.GetLicenseplate());
+            Assert.AreEqual(date, result.GetDate());
+            Assert.AreEqual("MC", result.GetVehicleType());
+            Assert.AreEqual(125.0, result.Price());
+        }
+
+        [TestMethod()]
+        public void BrobizzDiscount_MCDiscountTrue_ReturnsDiscountedPrice()
+        {
+            //arrange
+            var mc = new MC();
+            double discountedPrice = 125.0 * 0.95;
+
+            //act
+            var result = mc.Discount(true);
+
+            //assert
+            Assert.AreEqual(discountedPrice, result);
+        }
+
+        [TestMethod()]
+        public void BrobizzDiscount_MCDiscountFalse_ReturnsOriginalPrice()
+        {
+            //arrange
+            var mc = new MC();
+            double price = 125.0;
+
+            //act
+            var result = mc.Discount(false);
+
+            //assert
+            Assert.AreEqual(price, result);
         }
     }
 }

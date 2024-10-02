@@ -13,6 +13,7 @@ namespace TicketClassLibrary.Classes
         private string _licenseplate;
         private DateTime _date;
         private int _vehicleType;
+        private bool _brobizz;
 
         //properties
         protected string Licenseplate 
@@ -38,6 +39,12 @@ namespace TicketClassLibrary.Classes
         {
             get { return _vehicleType; }
             set { _vehicleType = value; } 
+        }
+
+        protected bool Brobizz
+        {
+            get { return _brobizz; }
+            set { _brobizz = value; }
         }
 
 
@@ -74,6 +81,23 @@ namespace TicketClassLibrary.Classes
                     return "MC";
                 default:
                     return "vehilce type is not in system";
+            }
+        }
+
+        /// <summary>
+        /// The Discopunt(bool) uses a discount of 5 % when applied true
+        /// </summary>
+        /// <param name="Brobizz"></param>
+        /// <returns>Discount</returns>
+        public double Discount(bool Brobizz)
+        {
+            if (Brobizz == true)
+            {
+                return Price() * 0.95;
+            }
+            else
+            {
+                return Price();
             }
         }
 

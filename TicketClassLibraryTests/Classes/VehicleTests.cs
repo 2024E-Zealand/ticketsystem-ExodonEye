@@ -13,64 +13,60 @@ namespace TicketClassLibrary.Classes.Tests
     public class VehicleTests
     {
         [TestMethod()]
-        public void PriceTest1()
+        public void GetCarPrice_CarPriceTrue_ReturnsOriginalCarPrice()
         {
             //arrange
-            string licenseplate = "cc20202";
-            DateTime date = DateTime.Now;
-            Car car = new Car(licenseplate, date);
+            var car = new Car();
+            double price = 240.0;
 
             //act
-            var Price = car.Price();
+            var result = car.Price();
 
             //assert
-            Assert.AreEqual(240.0, Price);
+            Assert.AreEqual(price, result);
         }
 
         [TestMethod()]
-        public void PriceTest2() 
+        public void GetMCPrice_MCPriceTrue_ReturnsOriginalMCPrice() 
         {
             //arrange
-            string licenseplate = "cc20202";
-            DateTime date = DateTime.Now;
-            MC mc = new MC(licenseplate, date);
+            var mc = new MC();
+            double price = 125.0;
 
             //act
-            var Price = mc.Price();
+            var result = mc.Price();
 
             //assert
-            Assert.AreEqual(125.0, Price);
+            Assert.AreEqual(price, result);
         }
 
         [TestMethod()]
-        public void PriceTest3()
+        public void GetPrice_NoTypeTrue_ReturnsNoPrice()
         {
             //arrange
-            string licenseplate = "cc20202";
-            DateTime date = DateTime.Now;
-            MC mc = new MC(licenseplate, date);
-
-            //act
+            var mc = new MC();
             mc.VehicleType = 3;
-            var Price = mc.Price();
+            var price = 0.0;
+
+            //act
+            var result = mc.Price();
 
             //assert
-            Assert.AreEqual(0.0, Price);
+            Assert.AreEqual(price, result);
         }
 
         [TestMethod()]
-        public void GetVehicleType1()
+        public void GetTypeCar_CarTypeTrue_ReturnsCarType()
         {
             //arrange
-            string licenseplate = "cc20202";
-            DateTime date = DateTime.Now;
-            Car car = new Car(licenseplate, date);
+            var car = new Car();
+            string type = "Car";
 
             //act
-            var VehicleType = car.GetVehicleType();
+            var result = car.GetVehicleType();
 
             //assert
-            Assert.AreEqual("Car", VehicleType);
+            Assert.AreEqual(type, result);
         }
 
         [TestMethod()]
@@ -79,7 +75,7 @@ namespace TicketClassLibrary.Classes.Tests
             //arrange
             string licenseplate = "cc20202";
             DateTime date = DateTime.Now;
-            MC mc = new MC(licenseplate, date);
+            var mc = new MC(licenseplate, date);
 
             //act
             var VehicleType = mc.GetVehicleType();
