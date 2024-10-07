@@ -54,7 +54,7 @@ namespace TicketClassLibrary.Classes
         /// and should return the vehicleTypes price
         /// </summary>
         /// <returns>Price</returns>
-        public double Price() 
+        public virtual double Price() 
         {
             switch (GetVehicleType())
             {
@@ -71,7 +71,7 @@ namespace TicketClassLibrary.Classes
         /// in a Switch so VehecleType 1 is "Car" And 2 is "MC"
         /// </summary>
         /// <returns>GetVehicleType</returns>
-        public string GetVehicleType() 
+        public virtual string GetVehicleType() 
         {
             switch (VehicleType) 
             {
@@ -110,6 +110,11 @@ namespace TicketClassLibrary.Classes
         public DateTime GetDate()
         {
             return Date;
+        }
+
+        public virtual bool GetBrobizz() 
+        { 
+            return Brobizz; 
         }
     }
 }
