@@ -116,5 +116,9 @@ namespace TicketClassLibrary.Classes
         { 
             return Brobizz; 
         }
+        public void SetBrobizz(bool value)
+        {
+            Brobizz = value;
+        }
     }
 }

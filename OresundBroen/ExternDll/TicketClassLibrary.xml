@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TicketClassLibrary</name>
+    </assembly>
+    <members>
+        <member name="M:TicketClassLibrary.Classes.Vehicle.Price">
+            <summary>
+            Price is deffinded by the type of GetVehicleType method
+            and should return the vehicleTypes price
+            </summary>
+            <returns>Price</returns>
+        </member>
+        <member name="M:TicketClassLibrary.Classes.Vehicle.GetVehicleType">
+            <summary>
+            The GetVehicleType() gets its int from VehicleType
+            in a Switch so VehecleType 1 is "Car" And 2 is "MC"
+            </summary>
+            <returns>GetVehicleType</returns>
+        </member>
+        <member name="M:TicketClassLibrary.Classes.Vehicle.Discount(System.Boolean)">
+            <summary>
+            The Discopunt(bool) uses a discount of 5 % when applied true
+            </summary>
+            <param name="Brobizz"></param>
+            <returns>Discount</returns>
+        </member>
+    </members>
+</doc>
